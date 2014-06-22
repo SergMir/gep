@@ -1,0 +1,20 @@
+hostname zgenhost
+datetime Sun Jun 22 23:28:14 EEST 2014
+runs_count 1
+timeout 1
+avg_time 1.000
+mses 142.125
+best_mse 142.125
+mse_success_margin .08
+success_rate 0
+test_caption       Эффективность алгоритма с различными функциями фитнеса
+experiment_caption 5222R^25222 (налож.)
+population_size    50
+tree_depth         5
+genes_count        1
+generations_count  100000
+mutations_per_chromosome  2
+ops_preset         full
+coding_type        overlapped
+fitness_type       r_squared
+mse_coefficient    10

@@ -1,0 +1,21 @@
+hostname zgenhost
+datetime Sun Jun 22 23:26:53 EEST 2014
+runs_count 1
+timeout 1
+avg_time 1.000
+mses 0.161
+best_mse 0.161
+mse_success_margin .06
+success_rate 0
+test_caption       Эффективность алгоритма с разными операторах отбора и размере популяции
+experiment_caption Турнир 400 особей (префикс.)
+population_size    400
+tree_depth         5
+genes_count        1
+generations_count  100000
+mutations_per_chromosome  2
+ops_preset         full
+coding_type        prefix
+fitness_type       mse
+mse_coefficient    10
+use_tournament 1

@@ -1,0 +1,20 @@
+hostname zgenhost
+datetime Sun Jun 22 23:24:22 EEST 2014
+runs_count 1
+timeout 1
+avg_time 1.000
+mses 0.139
+best_mse 0.139
+mse_success_margin .06
+success_rate 0
+test_caption       Эффективность алгоритма при различных вероятностях мутации
+experiment_caption 3 мутаций (налож.)
+population_size    50
+tree_depth         5
+genes_count        1
+generations_count  100000
+mutations_per_chromosome  3
+ops_preset         full
+coding_type        overlapped
+fitness_type       mse
+mse_coefficient    10
