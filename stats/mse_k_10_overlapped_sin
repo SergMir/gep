@@ -1,5 +1,5 @@
-hostname zgenhost
-datetime Sun Jun 22 23:27:31 EEST 2014
+hostname smiroshnychenko
+datetime Mon Jun 23 09:59:38 EEST 2014
 runs_count 1
 timeout 1
 avg_time 1.000
@@ -7,8 +7,8 @@ mses 0.000
 best_mse 0.000
 mse_success_margin .08
 success_rate 100
-test_caption       Эффективность алгоритма при различных коэффициентах давления 5222K5222
-experiment_caption 5222K=105222 (налож.)
+test_caption       Эффективность алгоритма при различных коэффициентах давления $K$
+experiment_caption $K=10$ (налож.)
 population_size    50
 tree_depth         5
 genes_count        1

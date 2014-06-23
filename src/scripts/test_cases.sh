@@ -240,14 +240,14 @@ function gep_test_selections
 
 function gep_test_mse_k
 {
-  TEST_CAPTION="Эффективность алгоритма при различных коэффициентах давления $$K$$"
+  TEST_CAPTION="Эффективность алгоритма при различных коэффициентах давления \$K\$"
   set_default_params
 
-  MSE_FITNESS_K="0.01"; run_all_tasks_all_codings "$$K=${MSE_FITNESS_K}$$" "mse_k_001"
-  MSE_FITNESS_K="0.1";  run_all_tasks_all_codings "$$K=${MSE_FITNESS_K}$$" "mse_k_01"
-  MSE_FITNESS_K="1";    run_all_tasks_all_codings "$$K=${MSE_FITNESS_K}$$" "mse_k_1"
-  MSE_FITNESS_K="10";   run_all_tasks_all_codings "$$K=${MSE_FITNESS_K}$$" "mse_k_10"
-  MSE_FITNESS_K="100";  run_all_tasks_all_codings "$$K=${MSE_FITNESS_K}$$" "mse_k_100"
+  MSE_FITNESS_K="0.01"; run_all_tasks_all_codings "\$K=${MSE_FITNESS_K}\$" "mse_k_001"
+  MSE_FITNESS_K="0.1";  run_all_tasks_all_codings "\$K=${MSE_FITNESS_K}\$" "mse_k_01"
+  MSE_FITNESS_K="1";    run_all_tasks_all_codings "\$K=${MSE_FITNESS_K}\$" "mse_k_1"
+  MSE_FITNESS_K="10";   run_all_tasks_all_codings "\$K=${MSE_FITNESS_K}\$" "mse_k_10"
+  MSE_FITNESS_K="100";  run_all_tasks_all_codings "\$K=${MSE_FITNESS_K}\$" "mse_k_100"
 }
 
 function gep_test_replace_worst
@@ -266,7 +266,7 @@ function gep_test_fitnesses
 
   FITNESS_TYPE="mse";         run_all_tasks_all_codings "СКО"           "full_mse"
   FITNESS_TYPE="partial_mse"; run_all_tasks_all_codings "Частичная СКО" "partial_mse"
-  FITNESS_TYPE="r_squared";   run_all_tasks_all_codings "$$R^2$$"       "r_squared"
+  FITNESS_TYPE="r_squared";   run_all_tasks_all_codings "\$R^2\$"       "r_squared"
 }
 
 function gep_test_incremental

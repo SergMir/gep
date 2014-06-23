@@ -1,14 +1,14 @@
-hostname zgenhost
-datetime Sun Jun 22 23:28:10 EEST 2014
+hostname smiroshnychenko
+datetime Mon Jun 23 10:00:11 EEST 2014
 runs_count 1
 timeout 1
 avg_time 1.000
-mses 0.871
-best_mse 0.871
+mses 0.093
+best_mse 0.093
 mse_success_margin .06
 success_rate 0
 test_caption       Эффективность алгоритма с различными функциями фитнеса
-experiment_caption 5222R^25222 (ферр.)
+experiment_caption $R^2$ (ферр.)
 population_size    50
 tree_depth         5
 genes_count        1
