@@ -2,7 +2,7 @@
 BUILDDIR=build
 
 CFLAGS=-Igep_src/include -Wall -Wextra -pedantic --std=gnu99 -O2 -g
-LDFLAGS=-lm -lGL -lglut -lGLU -fopenmp -Lgep_src/build -lgep
+LDFLAGS=-Wl,--no-as-needed -lm -lGL -lglut -lGLU -fopenmp -Lgep_src/build -lgep
 
 GEP_LIB=gep_src/build/libgep.a
 GEP_TEST_BIN=$(BUILDDIR)/gep_test

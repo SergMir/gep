@@ -2,7 +2,7 @@
 BUILDDIR=build
 
 CFLAGS=-Iinclude -Wall -Wextra -pedantic --std=gnu99 -O2 -g
-LDFLAGS=-lm -lGL -lglut -lGLU -fopenmp
+LDFLAGS=-fopenmp
 
 SOURCES=$(shell ls *.c)
 SOURCES+=$(shell ls gep_core/*.c)
