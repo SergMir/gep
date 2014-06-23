@@ -21,3 +21,9 @@ File structure
   * test.c - example of usage and testing procedure;
   * samples_comparator.c - tool to compare samples files;
   * scripts - generates statistics.
+
+Links
+---
+[Website of GEP's author](http://www.gene-expression-programming.com/)
+
+[List of used papers](papers/draft_thesis_half/related_work.bib)
