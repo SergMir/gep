@@ -121,6 +121,8 @@ function run_task
     TIMEOUT=0
   fi
 
+  create_gep_config_file ${PATH_TO_GENERATED_CONFIG_FILE}
+
   collect_stat "${test_full_name}" "${GEP_TEST_BIN}" "${config_file}" "${TEST_FILE}" "${WORK_DIR}/needless_output_samples" "${STAT_OUTPUT_DIR}/${test_full_name}" ${TIMEOUT} ${COLLECT_RUNS_COUNT} ${DIFFERENTIALS_COUNT} "${MSE_SUCCESS_MARGIN}"
 }
 
@@ -128,8 +130,6 @@ function run_all_tasks
 {
   EXPERIMENT_CAPTION="$1"
   local test_name="$2"
-
-  create_gep_config_file ${PATH_TO_GENERATED_CONFIG_FILE}
 
   set_task_1_params
   run_task "${test_name}_${TEST_BASENAME}" ${PATH_TO_GENERATED_CONFIG_FILE}
