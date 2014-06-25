@@ -50,7 +50,7 @@ function create_gep_config_file
 
 function set_origin_params
 {
-  POP_SIZE=50
+  POP_SIZE=100
   TREE_DEPTH=5
   GENES_COUNT=1
   GENERATIONS_COUNT=100000
@@ -178,7 +178,11 @@ function gep_test_pop_size
   POP_SIZE=10;  run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
   POP_SIZE=20;  run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
   POP_SIZE=40;  run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
+  POP_SIZE=60;  run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
+  POP_SIZE=80;  run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
   POP_SIZE=100; run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
+  POP_SIZE=120; run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
+  POP_SIZE=140; run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
   POP_SIZE=200; run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
   POP_SIZE=800; run_all_tasks "${POP_SIZE} особей" "pop_size_${POP_SIZE}"
 }
@@ -193,7 +197,6 @@ function gep_test_mutations
   MUTATIONS_PER_CHROMOSOME=2;  run_all_tasks_all_codings "${MUTATIONS_PER_CHROMOSOME} мутаций" "mutations_${MUTATIONS_PER_CHROMOSOME}"
   MUTATIONS_PER_CHROMOSOME=3;  run_all_tasks_all_codings "${MUTATIONS_PER_CHROMOSOME} мутаций" "mutations_${MUTATIONS_PER_CHROMOSOME}"
   MUTATIONS_PER_CHROMOSOME=5;  run_all_tasks_all_codings "${MUTATIONS_PER_CHROMOSOME} мутаций" "mutations_${MUTATIONS_PER_CHROMOSOME}"
-  MUTATIONS_PER_CHROMOSOME=10; run_all_tasks_all_codings "${MUTATIONS_PER_CHROMOSOME} мутаций" "mutations_${MUTATIONS_PER_CHROMOSOME}"
 }
 
 function gep_test_dynamic_constants

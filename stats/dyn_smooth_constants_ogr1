@@ -1,20 +1,20 @@
-hostname zgenhost
-datetime Sun Jun 22 23:24:44 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.141
-best_mse 0.141
+hostname smiroshnychenko
+datetime Wed Jun 25 08:15:20 EEST 2014
+runs_count 100
+timeout 10
+avg_time 10.000
+mses 0.133 0.128 0.121 0.165 0.060 0.082 0.165 0.161 0.143 0.107 0.161 0.111 0.146 0.149 0.130 0.165 0.144 0.165 0.123 0.130 0.117 0.162 0.163 0.134 0.130 0.165 0.064 0.130 0.083 0.146 0.059 0.132 0.130 0.121 0.141 0.130 0.130 0.134 0.140 0.151 0.133 0.104 0.097 0.094 0.127 0.153 0.096 0.130 0.165 0.129 0.118 0.131 0.136 0.133 0.134 0.084 0.165 0.147 0.165 0.146 0.130 0.155 0.153 0.159 0.130 0.140 0.135 0.162 0.104 0.113 0.146 0.147 0.142 0.143 0.105 0.165 0.149 0.135 0.157 0.133 0.106 0.147 0.134 0.133 0.084 0.135 0.141 0.135 0.165 0.134 0.155 0.135 0.117 0.142 0.162 0.131 0.130 0.104 0.120 0.134
+best_mse 0.059
 mse_success_margin .06
-success_rate 0
+success_rate 2
 test_caption       Эффективность алгоритма при плавной и динамической мутации констант
 experiment_caption Плавно-динамическая
-population_size    50
+population_size    100
 tree_depth         5
 genes_count        1
 generations_count  100000
 mutations_per_chromosome  2
-ops_preset         short
+ops_preset         full
 coding_type        ferreira
 fitness_type       mse
 mse_coefficient    10

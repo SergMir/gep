@@ -1,20 +1,20 @@
-hostname zgenhost
-datetime Sun Jun 22 23:23:52 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.000
-best_mse 0.000
+hostname smiroshnychenko
+datetime Tue Jun 24 21:55:52 EEST 2014
+runs_count 100
+timeout 7
+avg_time 7.000
+mses 0.369 0.369 0.110 0.139 0.076 0.076 0.609 0.359 0.351 0.296 0.355 0.369 0.112 0.543 0.613 0.351 0.358 0.603 0.359 0.348 0.360 0.590 0.361 0.344 0.359 0.361 0.351 0.351 0.109 0.551 0.369 0.590 0.634 0.507 0.355 0.358 0.365 0.613 0.436 0.359 0.351 0.348 0.625 0.603 0.359 0.109 0.113 0.359 0.613 0.596 0.359 0.369 0.606 0.599 0.361 0.186 0.361 0.109 0.590 0.350 0.358 0.397 0.625 0.359 0.348 0.114 0.613 0.580 0.631 0.334 0.590 0.112 0.496 0.474 0.349 0.550 0.625 0.521 0.116 0.369 0.361 0.589 0.369 0.032 0.351 0.613 0.393 0.371 0.360 0.108 0.361 0.625 0.378 0.589 0.492 0.585 0.112 0.486 0.552 0.357
+best_mse 0.032
 mse_success_margin .08
-success_rate 100
+success_rate 3
 test_caption       Эффективность алгоритма при различных вероятностях мутации
 experiment_caption Без мутаций (налож.)
-population_size    50
+population_size    100
 tree_depth         5
 genes_count        1
 generations_count  100000
 mutations_per_chromosome  0
-ops_preset         full
+ops_preset         short
 coding_type        overlapped
 fitness_type       mse
 mse_coefficient    10
