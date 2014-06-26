@@ -73,7 +73,7 @@ function set_origin_params
   MSE_SUCCESS_MARGIN="0.01"
 
   NO_TIME_LIMIT=0
-  TIME_LIMIT_MILTIPLIER=1
+  TIME_MILTIPLIER=1
 }
 
 function set_default_params
@@ -134,7 +134,8 @@ function run_task
     TIMEOUT=0
   fi
 
-  TIMEOUT=$((${TIMEOUT} * ${TIME_LIMIT_MILTIPLIER}))
+  TIMEOUT=$((${TIMEOUT} * ${TIME_MILTIPLIER}))
+  GENERATIONS_COUNT=$((${GENERATIONS_COUNT} * ${TIME_MILTIPLIER}))
 
   create_gep_config_file ${PATH_TO_GENERATED_CONFIG_FILE}
 
@@ -300,8 +301,8 @@ function gep_test_incremental
 
   NO_TIME_LIMIT=1
 
-  USE_INCREMENTAL_EVOLUTION=0; run_all_tasks "Традиц." "no_incremental"
-  USE_INCREMENTAL_EVOLUTION=1; run_all_tasks "Инкрем." "incremental"
+  TIME_MILTIPLIER=2; USE_INCREMENTAL_EVOLUTION=0; run_all_tasks "Традиц." "no_incremental"
+  TIME_MILTIPLIER=1; USE_INCREMENTAL_EVOLUTION=1; run_all_tasks "Инкрем." "incremental"
 }
 
 function gep_test_additional_population
@@ -318,8 +319,8 @@ function gep_test_differential
   TEST_CAPTION="Эффективность алгоритма с разностным подходом"
   set_default_params
 
-  TIME_LIMIT_MILTIPLIER=6; DIFFERENTIALS_COUNT=0; run_all_tasks "Исходный алгоритм" "no_differential"
-  TIME_LIMIT_MILTIPLIER=3; DIFFERENTIALS_COUNT=1; run_all_tasks "Разность 1"        "differential_${DIFFERENTIALS_COUNT}"
-  TIME_LIMIT_MILTIPLIER=2; DIFFERENTIALS_COUNT=2; run_all_tasks "Разность 2"        "differential_${DIFFERENTIALS_COUNT}"
-  TIME_LIMIT_MILTIPLIER=1; DIFFERENTIALS_COUNT=3; run_all_tasks "Разность 3"        "differential_${DIFFERENTIALS_COUNT}"
+  TIME_MILTIPLIER=6; DIFFERENTIALS_COUNT=0; run_all_tasks "Исходный алгоритм" "no_differential"
+  TIME_MILTIPLIER=3; DIFFERENTIALS_COUNT=1; run_all_tasks "Разность 1"        "differential_${DIFFERENTIALS_COUNT}"
+  TIME_MILTIPLIER=2; DIFFERENTIALS_COUNT=2; run_all_tasks "Разность 2"        "differential_${DIFFERENTIALS_COUNT}"
+  TIME_MILTIPLIER=1; DIFFERENTIALS_COUNT=3; run_all_tasks "Разность 3"        "differential_${DIFFERENTIALS_COUNT}"
 }

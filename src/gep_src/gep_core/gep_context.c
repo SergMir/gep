@@ -32,7 +32,9 @@ struct gep_ctx_s
 
   double best_fitness;
   gep_individual_t best_individual;
+  gep_individual_t prev_best_individual;
   gep_params_t max_params;
+  gep_params_t prev_params;
 
   char output_samples_filename[256];
 };
@@ -106,6 +108,24 @@ static gep_ctx_t* gep_CreateDefaultContext(void)
   return ctx;
 }
 
+/*----------------------------------------------------------------------------*/
+//!
+static void gep_AllocateIndividual(gep_individual_t *ind, gep_params_t *params)
+{
+  ind->chromosome      = malloc(params->chromosome_size * NODE_SIZE);
+  ind->head_lengths    = malloc(params->genes_count * sizeof(ind->head_lengths[0]));
+  ind->working_lengths = malloc(params->genes_count * sizeof(ind->working_lengths[0]));
+  ind->viable          = 0;
+}
+
+/*----------------------------------------------------------------------------*/
+//!
+static void gep_DeallocateIndividual(gep_individual_t *ind)
+{
+  free(ind->chromosome);
+  free(ind->head_lengths);
+  free(ind->working_lengths);
+}
 
 /*----------------------------------------------------------------------------*/
 //!
@@ -156,10 +176,7 @@ gep_ctx_t* GEP_CreateContext(const gep_short_params_t *short_params, gep_stat_pa
   memcpy(&ctx->max_params, params, sizeof(ctx->max_params));
   recalcParamSize(&ctx->max_params, ctx->tree_depth_max);
 
-  ctx->best_individual.chromosome      = malloc(ctx->max_params.chromosome_size * NODE_SIZE);
-  ctx->best_individual.head_lengths    = malloc(ctx->max_params.genes_count * sizeof(ctx->best_individual.head_lengths[0]));
-  ctx->best_individual.working_lengths = malloc(ctx->max_params.genes_count * sizeof(ctx->best_individual.working_lengths[0]));
-  ctx->best_individual.viable          = 0;
+  gep_AllocateIndividual(&ctx->best_individual, &ctx->max_params);
 
   stat_params->dimensions_count        = params->input_dimensions_count;
   stat_params->input_samples_count     = ctx->problem->samples_count;
@@ -190,9 +207,13 @@ void GEP_Run(gep_ctx_t *ctx, gep_stat_callback_t callback)
       GEP_InitPopulation(population);
       if (!ctx->flag_first_init)
       {
-        //GEP_CopyChromosomeFromSmaller(population->best, params, &ctx->best_individual, &ctx->max_params);
+        GEP_CopyChromosome(population->best, params, &ctx->prev_best_individual, &ctx->prev_params);
+        gep_DeallocateIndividual(&ctx->prev_best_individual);
       }
       GEP_RecalculatePopulation(problem, population);
+
+      memcpy(&ctx->prev_params, params, sizeof(*params));
+      gep_AllocateIndividual(&ctx->prev_best_individual, &ctx->prev_params);
 
       if (params->use_additional_population)
       {
@@ -252,6 +273,8 @@ void GEP_Run(gep_ctx_t *ctx, gep_stat_callback_t callback)
       }
       else
       {
+        GEP_CopyChromosome(&ctx->prev_best_individual, &ctx->prev_params, population->best, params);
+
         GEP_DeinitPopulation(population);
         if (params->use_additional_population)
         {
@@ -299,9 +322,7 @@ void GEP_DestroyContext(gep_ctx_t *ctx)
 {
   gep_params_t *params =  ctx->population.params;
 
-  free(ctx->best_individual.chromosome);
-  free(ctx->best_individual.head_lengths);
-  free(ctx->best_individual.working_lengths);
+  gep_DeallocateIndividual(&ctx->best_individual);
 
   free(params->ops_set->ops);
   free(params->ops_set);
