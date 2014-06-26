@@ -1,0 +1,20 @@
+hostname smiroshnychenko
+datetime Thu Jun 26 15:50:57 EEST 2014
+runs_count 2
+timeout 2
+avg_time 0
+mses 0.063 0.220
+best_mse 0.063
+mse_success_margin .08
+success_rate 50
+test_caption       Эффективность алгоритма с разностным подходом
+experiment_caption Разность 2
+population_size    100
+tree_depth         5
+genes_count        1
+generations_count  100000
+mutations_per_chromosome  2
+ops_preset         short
+coding_type        ferreira
+fitness_type       mse
+mse_coefficient    10

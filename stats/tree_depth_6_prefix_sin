@@ -1,20 +1,20 @@
-hostname zgenhost
-datetime Sun Jun 22 23:25:19 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.000
-best_mse 0.000
+hostname smiroshnychenko
+datetime Thu Jun 26 02:21:05 EEST 2014
+runs_count 100
+timeout 7
+avg_time 7.000
+mses 0.503 0.024 0.064 0.506 0.360 0.026 0.478 0.330 0.589 0.361 0.504 0.354 0.114 0.268 0.336 0.589 0.079 0.397 0.074 0.542 0.344 0.355 0.065 0.076 0.070 0.578 0.073 0.352 0.284 0.263 0.073 0.073 0.120 0.082 0.464 0.355 0.326 0.154 0.185 0.040 0.582 0.587 0.011 0.134 0.568 0.011 0.588 0.532 0.130 0.104 0.613 0.587 0.345 0.344 0.181 0.052 0.390 0.524 0.130 0.076 0.356 0.361 0.285 0.589 0.092 0.081 0.365 0.382 0.359 0.588 0.235 0.335 0.352 0.468 0.061 0.500 0.477 0.071 0.320 0.075 0.509 0.162 0.080 0.325 0.094 0.025 0.565 0.034 0.506 0.120 0.505 0.474 0.589 0.352 0.101 0.083 0.495 0.357 0.345 0.490
+best_mse 0.011
 mse_success_margin .08
-success_rate 100
+success_rate 22
 test_caption       Эффективность алгоритма при разной глубине синтаксического дерева
 experiment_caption Глубина 6 (префикс.)
-population_size    50
+population_size    100
 tree_depth         6
 genes_count        1
 generations_count  100000
 mutations_per_chromosome  2
-ops_preset         full
+ops_preset         short
 coding_type        prefix
 fitness_type       mse
 mse_coefficient    10

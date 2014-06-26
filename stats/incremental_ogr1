@@ -1,0 +1,21 @@
+hostname smiroshnychenko
+datetime Thu Jun 26 11:20:33 EEST 2014
+runs_count 2
+timeout 0
+avg_time 16.915
+mses 0.165 0.096
+best_mse 0.096
+mse_success_margin .06
+success_rate 0
+test_caption       Эффективность алгоритма при традиционной и инкрементальной эволюции
+experiment_caption Инкрем.
+population_size    100
+tree_depth         5
+genes_count        1
+generations_count  1000
+mutations_per_chromosome  2
+ops_preset         full
+coding_type        ferreira
+fitness_type       mse
+mse_coefficient    10
+use_incremental_evolution 1
