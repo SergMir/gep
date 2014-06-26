@@ -18,16 +18,16 @@ int main(int argc, char *argv[])
   FILE *fid_in_2 = fopen(argv[3], "r");
   FILE *fid_out  = fopen(argv[4], "w");
 
-  int inputs_count = 0, samples_count = 1;
+  int dimensions_count = 0, samples_count = 1;
   double scale;
 
-  status |= (1 != fscanf(fid_in_1, "%d", &inputs_count));
-  status |= (1 != fscanf(fid_in_2, "%d", &inputs_count));
-  fprintf(fid_out, "%d\n", inputs_count);
+  status |= (1 != fscanf(fid_in_1, "%d", &dimensions_count));
+  status |= (1 != fscanf(fid_in_2, "%d", &dimensions_count));
+  fprintf(fid_out, "%d\n", dimensions_count);
 
-  int inputs_sizes[inputs_count];
+  int inputs_sizes[dimensions_count];
 
-  for (int i = 0; i < inputs_count; ++i)
+  for (int i = 0; i < dimensions_count; ++i)
   {
     int inp_size = 0;
     status |= (1 != fscanf(fid_in_1, "%d", &inp_size));
@@ -36,6 +36,19 @@ int main(int argc, char *argv[])
     fprintf(fid_out, "%d ", inp_size);
     samples_count *= inp_size;
   }
+  fprintf(fid_out, "\n");
+
+  for (int i = 0; i < dimensions_count; ++i)
+  {
+    double inp_range_start = 0;
+    double inp_range_stop = 0;
+    status |= (1 != fscanf(fid_in_1, "%lf %lf", &inp_range_start, &inp_range_stop));
+    status |= (1 != fscanf(fid_in_2, "%lf %lf", &inp_range_start, &inp_range_stop));
+
+    fprintf(fid_out, "%lf %lf\n", inp_range_start, inp_range_stop);
+  }
+
+
   status |= (1 != fscanf(fid_in_1, "%lf", &scale));
   status |= (1 != fscanf(fid_in_2, "%lf", &scale));
 
@@ -63,9 +76,9 @@ int main(int argc, char *argv[])
   }
 
   //fprintf(fid_out, "\n%lf\n", out_max - out_min);
-  fprintf(fid_out, "\n1.0\n");
+  fprintf(fid_out, "1.0\n");
 
-  if (1 == inputs_count)
+  if (1 == dimensions_count)
   {
     for (int i = 0; i < samples_count; ++i)
     {
@@ -76,7 +89,7 @@ int main(int argc, char *argv[])
     }
     fprintf(fid_out, "\n");
   }
-  else if (2 == inputs_count)
+  else if (2 == dimensions_count)
   {
     for (int y = 0; y < inputs_sizes[1]; ++y)
     {
@@ -91,7 +104,7 @@ int main(int argc, char *argv[])
       fprintf(fid_out, "\n");
     }
   }
-  else if (3 == inputs_count)
+  else if (3 == dimensions_count)
   {
     for (int y = 0; y < inputs_sizes[1]; ++y)
     {

@@ -2,7 +2,7 @@
 
 WORK_DIR=../build
 GEP_TEST_BIN=${WORK_DIR}/gep_test
-GEP_COMPARATOR_BIN=${WORK_DIR}/gep_comparator
+GEP_COMPARATOR_BIN=${WORK_DIR}/samples_comparator
 STAT_OUTPUT_DIR=../../stats
 TEST_FILES_DIR=../test_files_gen/build
 
@@ -32,9 +32,9 @@ case "${action}" in
     gep_test_mse_k
     gep_test_replace_worst
     gep_test_fitnesses
-    #gep_test_incremental
+    gep_test_incremental
     gep_test_additional_population
-    #gep_test_differential
+    gep_test_differential
     ;;
   "valgrind" )
     COLLECT_RUNS_COUNT=1

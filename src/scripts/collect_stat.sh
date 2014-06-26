@@ -24,6 +24,9 @@ function collect_stat
   #echo "diffs_count ${diffs_count}"
   #echo "mse_success_margin ${mse_success_margin}"
 
+  local diff_internal_loop=2
+  runs_count=$((${runs_count} / ${diff_internal_loop}))
+
   local work_dir=$(dirname ${config_file})
   local work_prefix="${work_dir}/collect_stat"
   local tmp_log_file="${work_prefix}_log"
@@ -45,27 +48,59 @@ function collect_stat
     echo -ne "${short_task_name}: ${progress}%\r"
 
     local time_per_current_run=${timeout}
-
-    local gep_command_line="${gep_bin} ${config_file} ${input_samples_file} ${tmp_output_samples_file} 0"
+    local mse=10000000
 
     if [ ${diffs_count} -eq 0 ]; then
+      local gep_command_line="${gep_bin} ${config_file} ${input_samples_file} ${tmp_output_samples_file} 0"
+
       if [ ${timeout} -eq 0 ]; then
         /usr/bin/time -f "%e" -o ${tmp_time_file} ${gep_command_line} > ${tmp_log_file}
         time_per_current_run=$(cat ${tmp_time_file})
       else
         timeout --signal=SIGUSR1 ${timeout} ${gep_command_line} > ${tmp_log_file}
       fi
+
       total_time=$(echo "scale=2; ${total_time} + ${time_per_current_run}" | bc)
+
+      cat ${tmp_log_file} | grep "^| " | awk '{ print $2 " " $4 }' > ${tmp_filtered_log_file}
+      mse=`tail --lines=1 ${tmp_filtered_log_file} | awk '{ print $2 }'`
     else
-      local tmp_input_samples_file=${input_samples_file}
-      for diff_run_idx in `seq 1 10`
+      local current_diff_run_best_samples_file="${work_prefix}_current_diff_run_best_samples"
+      local current_diff_run_input_samples_file="${work_prefix}_current_diff_run_input_samples"
+      local tmp_swap_file="${work_prefix}_tmp_swap_file"
+      cp ${input_samples_file} ${current_diff_run_input_samples_file}
+
+      for diff_run_idx in `seq 1 $((${diffs_count} + 1))`
       do
-        local prev_tmp_input_samples_file=${tmp_input_samples_file}
+        local current_diff_run_best_mse=10000000
+        local current_diff_run_output_samples_file="${work_prefix}_current_diff_run_output_samples"
+        local gep_command_line="${gep_bin} ${config_file} ${current_diff_run_input_samples_file} ${current_diff_run_output_samples_file} 0"
+
+        for diff_internal_idx in `seq 1 ${diff_internal_loop}`
+        do
+          timeout --signal=SIGUSR1 ${timeout} ${gep_command_line} > ${tmp_log_file}
+          cat ${tmp_log_file} | grep "^| " | awk '{ print $2 " " $4 }' > ${tmp_filtered_log_file}
+          local current_diff_run_mse=`tail --lines=1 ${tmp_filtered_log_file} | awk '{ print $2 }'`
+
+          local better=$(echo ${current_diff_run_mse} ${current_diff_run_best_mse} | awk '{if ($1 <= $2) print "1"; else print "0"}')
+          if [ ${better} -eq 1 ]; then
+            current_diff_run_best_mse=${current_diff_run_mse}
+            cp ${current_diff_run_output_samples_file} ${current_diff_run_best_samples_file}
+          fi
+        done
+
+        if [ ${diff_run_idx} -eq 1 ]; then
+          cp ${current_diff_run_best_samples_file} ${tmp_output_samples_file}
+        else
+          ${GEP_COMPARATOR_BIN} + ${current_diff_run_best_samples_file} ${tmp_output_samples_file} ${tmp_swap_file}
+          cp ${tmp_swap_file} ${tmp_output_samples_file}
+        fi
+
+        ${GEP_COMPARATOR_BIN} - ${current_diff_run_best_samples_file} ${current_diff_run_input_samples_file} ${tmp_swap_file}
+        cp ${tmp_swap_file} ${current_diff_run_input_samples_file}
+        mse=${current_diff_run_best_mse}
       done
     fi
-
-    cat ${tmp_log_file} | grep "^| " | awk '{ print $2 " " $4 }' > ${tmp_filtered_log_file}
-    local mse=`tail --lines=1 ${tmp_filtered_log_file} | awk '{ print $2 }'`
 
     all_mses[${run_idx}]=${mse}
 

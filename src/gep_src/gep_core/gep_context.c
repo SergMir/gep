@@ -190,7 +190,7 @@ void GEP_Run(gep_ctx_t *ctx, gep_stat_callback_t callback)
       GEP_InitPopulation(population);
       if (!ctx->flag_first_init)
       {
-        GEP_CopyChromosome(population->best, params, &ctx->best_individual, &ctx->max_params);
+        //GEP_CopyChromosomeFromSmaller(population->best, params, &ctx->best_individual, &ctx->max_params);
       }
       GEP_RecalculatePopulation(problem, population);
 

@@ -73,6 +73,7 @@ function set_origin_params
   MSE_SUCCESS_MARGIN="0.01"
 
   NO_TIME_LIMIT=0
+  TIME_LIMIT_MILTIPLIER=1
 }
 
 function set_default_params
@@ -88,6 +89,10 @@ function set_task_1_params
   TIMEOUT=7
   MSE_SUCCESS_MARGIN=".08"
   OPS_PRESET="short"
+
+  if [ ${NO_TIME_LIMIT} -eq 1 ]; then
+    GENERATIONS_COUNT=4000
+  fi
 }
 
 function set_task_2_params
@@ -97,6 +102,10 @@ function set_task_2_params
   TIMEOUT=10
   MSE_SUCCESS_MARGIN=".05"
   OPS_PRESET="short"
+
+  if [ ${NO_TIME_LIMIT} -eq 1 ]; then
+    GENERATIONS_COUNT=1000
+  fi
 }
 
 function set_task_3_params
@@ -106,6 +115,10 @@ function set_task_3_params
   TIMEOUT=10
   MSE_SUCCESS_MARGIN=".06"
   OPS_PRESET="full"
+
+  if [ ${NO_TIME_LIMIT} -eq 1 ]; then
+    GENERATIONS_COUNT=1000
+  fi
 }
 
 function run_task
@@ -120,6 +133,8 @@ function run_task
   if [ ${NO_TIME_LIMIT} -eq 1 ]; then
     TIMEOUT=0
   fi
+
+  TIMEOUT=$((${TIMEOUT} * ${TIME_LIMIT_MILTIPLIER}))
 
   create_gep_config_file ${PATH_TO_GENERATED_CONFIG_FILE}
 
@@ -227,17 +242,23 @@ function gep_test_selections
 
   POP_SIZE=10;  run_all_tasks_all_codings "Рулетка ${POP_SIZE} особей" "sel_roulette_${POP_SIZE}"
   POP_SIZE=50;  run_all_tasks_all_codings "Рулетка ${POP_SIZE} особей" "sel_roulette_${POP_SIZE}"
+  POP_SIZE=100  run_all_tasks_all_codings "Рулетка ${POP_SIZE} особей" "sel_roulette_${POP_SIZE}"
+  POP_SIZE=150; run_all_tasks_all_codings "Рулетка ${POP_SIZE} особей" "sel_roulette_${POP_SIZE}"
   POP_SIZE=400; run_all_tasks_all_codings "Рулетка ${POP_SIZE} особей" "sel_roulette_${POP_SIZE}"
 
   USE_SELECT_PROB_DENSITY=1
   POP_SIZE=10;  run_all_tasks_all_codings "Отбор плотн. (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
   POP_SIZE=50;  run_all_tasks_all_codings "Отбор плотн. (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
+  POP_SIZE=100; run_all_tasks_all_codings "Отбор плотн. (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
+  POP_SIZE=150; run_all_tasks_all_codings "Отбор плотн. (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
   POP_SIZE=400; run_all_tasks_all_codings "Отбор плотню (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
   USE_SELECT_PROB_DENSITY=0
 
   USE_TOURNAMENT=1
   POP_SIZE=10;  run_all_tasks_all_codings "Турнир ${POP_SIZE} особей" "sel_tournament_${POP_SIZE}"
   POP_SIZE=50;  run_all_tasks_all_codings "Турнир ${POP_SIZE} особей" "sel_tournament_${POP_SIZE}"
+  POP_SIZE=100; run_all_tasks_all_codings "Турнир ${POP_SIZE} особей" "sel_tournament_${POP_SIZE}"
+  POP_SIZE=150; run_all_tasks_all_codings "Турнир ${POP_SIZE} особей" "sel_tournament_${POP_SIZE}"
   POP_SIZE=400; run_all_tasks_all_codings "Турнир ${POP_SIZE} особей" "sel_tournament_${POP_SIZE}"
 }
 
@@ -277,11 +298,10 @@ function gep_test_incremental
   TEST_CAPTION="Эффективность алгоритма при традиционной и инкрементальной эволюции"
   set_default_params
 
-  GENERATIONS_COUNT=2000
   NO_TIME_LIMIT=1
 
-  USE_INCREMENTAL_EVOLUTION=0; run_all_tasks_all_codings "Традиц." "no_incremental"
-  USE_INCREMENTAL_EVOLUTION=1; run_all_tasks_all_codings "Инкрем." "incremental"
+  USE_INCREMENTAL_EVOLUTION=0; run_all_tasks "Традиц." "no_incremental"
+  USE_INCREMENTAL_EVOLUTION=1; run_all_tasks "Инкрем." "incremental"
 }
 
 function gep_test_additional_population
@@ -298,8 +318,8 @@ function gep_test_differential
   TEST_CAPTION="Эффективность алгоритма с разностным подходом"
   set_default_params
 
-  DIFFERENTIALS_COUNT=0; run_all_tasks "Исходный алгоритм" "no_differential"
-  DIFFERENTIALS_COUNT=1; run_all_tasks "Разность 1"        "differential_${DIFFERENTIALS_COUNT}"
-  DIFFERENTIALS_COUNT=2; run_all_tasks "Разность 2"        "differential_${DIFFERENTIALS_COUNT}"
-  DIFFERENTIALS_COUNT=3; run_all_tasks "Разность 3"        "differential_${DIFFERENTIALS_COUNT}"
+  TIME_LIMIT_MILTIPLIER=6; DIFFERENTIALS_COUNT=0; run_all_tasks "Исходный алгоритм" "no_differential"
+  TIME_LIMIT_MILTIPLIER=3; DIFFERENTIALS_COUNT=1; run_all_tasks "Разность 1"        "differential_${DIFFERENTIALS_COUNT}"
+  TIME_LIMIT_MILTIPLIER=2; DIFFERENTIALS_COUNT=2; run_all_tasks "Разность 2"        "differential_${DIFFERENTIALS_COUNT}"
+  TIME_LIMIT_MILTIPLIER=1; DIFFERENTIALS_COUNT=3; run_all_tasks "Разность 3"        "differential_${DIFFERENTIALS_COUNT}"
 }

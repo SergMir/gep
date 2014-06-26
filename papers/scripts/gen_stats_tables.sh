@@ -96,3 +96,7 @@ gen_plot "cmp_fitnesses" \
          "full_mse_overlapped" "partial_mse_overlapped" "r_squared_overlapped"
 
 gen_plot "cmp_additional_population" "no_add_pop" "add_pop"
+
+gen_plot "cmp_incremental" "no_incremental" "incremental"
+
+gen_plot "cmp_differential" "no_differential" "differential_1" "differential_2" "differential_3"
