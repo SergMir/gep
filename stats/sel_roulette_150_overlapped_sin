@@ -1,0 +1,20 @@
+hostname smiroshnychenko
+datetime Fri Jun 27 03:25:53 EEST 2014
+runs_count 50
+timeout 7
+avg_time 7.000
+mses 0.071 0.193 0.072 0.361 0.069 0.062 0.075 0.334 0.066 0.071 0.071 0.068 0.068 0.089 0.080 0.067 0.076 0.075 0.346 0.481 0.361 0.233 0.073 0.072 0.356 0.360 0.354 0.348 0.073 0.071 0.355 0.040 0.070 0.069 0.069 0.128 0.120 0.343 0.359 0.133 0.071 0.074 0.069 0.067 0.142 0.170 0.080 0.065 0.075 0.380
+best_mse 0.040
+mse_success_margin .08
+success_rate 58
+test_caption       Эффективность алгоритма с разными операторах отбора и размере популяции
+experiment_caption Рулетка 150 особей (налож.)
+population_size    150
+tree_depth         5
+genes_count        1
+generations_count  100000
+mutations_per_chromosome  2
+ops_preset         short
+coding_type        overlapped
+fitness_type       mse
+mse_coefficient    10

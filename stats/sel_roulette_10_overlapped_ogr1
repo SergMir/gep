@@ -1,12 +1,12 @@
-hostname zgenhost
-datetime Sun Jun 22 23:25:42 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.165
-best_mse 0.165
+hostname smiroshnychenko
+datetime Fri Jun 27 00:19:43 EEST 2014
+runs_count 50
+timeout 10
+avg_time 10.000
+mses 0.165 0.165 0.165 0.142 0.162 0.165 0.165 0.165 0.165 0.165 0.165 0.165 0.165 0.165 0.118 0.155 0.165 0.165 0.165 0.165 0.057 0.123 0.093 0.123 0.134 0.139 0.165 0.105 0.165 0.116 0.130 0.165 0.150 0.165 0.137 0.075 0.165 0.163 0.165 0.157 0.075 0.165 0.135 0.165 0.165 0.075 0.145 0.142 0.165 0.144
+best_mse 0.057
 mse_success_margin .06
-success_rate 0
+success_rate 2
 test_caption       Эффективность алгоритма с разными операторах отбора и размере популяции
 experiment_caption Рулетка 10 особей (налож.)
 population_size    10

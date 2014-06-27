@@ -1,12 +1,12 @@
-hostname zgenhost
-datetime Sun Jun 22 23:25:55 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.161
-best_mse 0.161
+hostname smiroshnychenko
+datetime Fri Jun 27 04:05:09 EEST 2014
+runs_count 50
+timeout 10
+avg_time 10.000
+mses 0.131 0.135 0.131 0.151 0.138 0.129 0.144 0.056 0.113 0.130 0.138 0.050 0.138 0.133 0.117 0.139 0.096 0.151 0.130 0.056 0.116 0.143 0.152 0.132 0.130 0.130 0.134 0.152 0.097 0.114 0.137 0.142 0.132 0.107 0.165 0.133 0.132 0.086 0.123 0.104 0.125 0.114 0.133 0.146 0.047 0.139 0.124 0.114 0.152 0.089
+best_mse 0.047
 mse_success_margin .06
-success_rate 0
+success_rate 8
 test_caption       Эффективность алгоритма с разными операторах отбора и размере популяции
 experiment_caption Рулетка 400 особей (ферр.)
 population_size    400

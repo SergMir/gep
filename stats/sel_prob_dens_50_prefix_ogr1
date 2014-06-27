@@ -1,12 +1,12 @@
-hostname zgenhost
-datetime Sun Jun 22 23:26:15 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.165
-best_mse 0.165
+hostname smiroshnychenko
+datetime Fri Jun 27 06:22:23 EEST 2014
+runs_count 50
+timeout 10
+avg_time 10.000
+mses 0.165 0.133 0.165 0.165 0.165 0.118 0.139 0.142 0.142 0.165 0.135 0.136 0.088 0.153 0.132 0.039 0.165 0.150 0.100 0.153 0.165 0.148 0.165 0.118 0.165 0.165 0.151 0.165 0.146 0.089 0.162 0.165 0.130 0.095 0.078 0.148 0.063 0.165 0.165 0.165 0.165 0.165 0.130 0.135 0.130 0.165 0.149 0.165 0.137 0.137
+best_mse 0.039
 mse_success_margin .06
-success_rate 0
+success_rate 2
 test_caption       Эффективность алгоритма с разными операторах отбора и размере популяции
 experiment_caption Отбор плотн. (50) (префикс.)
 population_size    50

@@ -1,15 +1,15 @@
 hostname smiroshnychenko
-datetime Mon Jun 23 09:59:46 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.135
-best_mse 0.135
+datetime Thu Jun 26 22:49:34 EEST 2014
+runs_count 50
+timeout 10
+avg_time 10.000
+mses 0.150 0.151 0.151 0.165 0.061 0.163 0.098 0.075 0.136 0.151 0.063 0.111 0.100 0.133 0.124 0.165 0.044 0.128 0.086 0.142 0.126 0.104 0.147 0.082 0.147 0.044 0.072 0.165 0.104 0.135 0.160 0.117 0.130 0.127 0.062 0.130 0.118 0.165 0.130 0.135 0.080 0.165 0.163 0.135 0.132 0.110 0.165 0.111 0.118 0.081
+best_mse 0.044
 mse_success_margin .06
-success_rate 0
+success_rate 4
 test_caption       Эффективность алгоритма при различных коэффициентах давления $K$
 experiment_caption $K=100$ (префикс.)
-population_size    50
+population_size    100
 tree_depth         5
 genes_count        1
 generations_count  100000

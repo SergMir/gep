@@ -1,10 +1,10 @@
-hostname zgenhost
-datetime Sun Jun 22 23:26:04 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 
-best_mse 10000000
+hostname smiroshnychenko
+datetime Fri Jun 27 05:05:34 EEST 2014
+runs_count 50
+timeout 10
+avg_time 10.000
+mses 0.113   0.140   0.130                                        0.165   
+best_mse 0.113
 mse_success_margin .06
 success_rate 0
 test_caption       Эффективность алгоритма с разными операторах отбора и размере популяции
