@@ -252,7 +252,7 @@ function gep_test_selections
   POP_SIZE=50;  run_all_tasks_all_codings "Отбор плотн. (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
   POP_SIZE=100; run_all_tasks_all_codings "Отбор плотн. (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
   POP_SIZE=150; run_all_tasks_all_codings "Отбор плотн. (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
-  POP_SIZE=400; run_all_tasks_all_codings "Отбор плотню (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
+  POP_SIZE=400; run_all_tasks_all_codings "Отбор плотн. (${POP_SIZE})" "sel_prob_dens_${POP_SIZE}"
   USE_SELECT_PROB_DENSITY=0
 
   USE_TOURNAMENT=1
