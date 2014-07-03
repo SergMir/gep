@@ -78,15 +78,15 @@ gen_plot "cmp_tree_depths" \
          "tree_depth_3_overlapped" "tree_depth_4_overlapped" "tree_depth_5_overlapped" "tree_depth_6_overlapped" "tree_depth_7_overlapped"
 
 gen_plot "cmp_probability_density_selection_and_tournament" \
-         "sel_roulette_10_ferreira"     "sel_roulette_50_ferreira"     "sel_roulette_400_ferreira" \
-         "sel_prob_dens_10_ferreira"    "sel_prob_dens_50_ferreira"    "sel_prob_dens_400_ferreira" \
-         "sel_tournament_10_ferreira"   "sel_tournament_50_ferreira"   "sel_tournament_400_ferreira" "hline" \
-         "sel_roulette_10_prefix"       "sel_roulette_50_prefix"       "sel_roulette_400_prefix" \
-         "sel_prob_dens_10_prefix"      "sel_prob_dens_50_prefix"      "sel_prob_dens_400_prefix" \
-         "sel_tournament_10_prefix"     "sel_tournament_50_prefix"     "sel_tournament_400_prefix" "hline" \
-         "sel_roulette_10_overlapped"   "sel_roulette_50_overlapped"   "sel_roulette_400_overlapped" \
-         "sel_prob_dens_10_overlapped"  "sel_prob_dens_50_overlapped"  "sel_prob_dens_400_overlapped" \
-         "sel_tournament_10_overlapped" "sel_tournament_50_overlapped" "sel_tournament_400_overlapped"
+         "sel_roulette_50_ferreira"     "sel_roulette_100_ferreira"     "sel_roulette_150_ferreira"    \
+         "sel_prob_dens_50_ferreira"    "sel_prob_dens_100_ferreira"    "sel_prob_dens_150_ferreira"   \
+         "sel_tournament_50_ferreira"   "sel_tournament_100_ferreira"   "sel_tournament_150_ferreira" "hline" \
+         "sel_roulette_50_prefix"       "sel_roulette_100_prefix"       "sel_roulette_150_prefix"      \
+         "sel_prob_dens_50_prefix"      "sel_prob_dens_100_prefix"      "sel_prob_dens_150_prefix"     \
+         "sel_tournament_50_prefix"     "sel_tournament_100_prefix"     "sel_tournament_150_prefix"   "hline" \
+         "sel_roulette_50_overlapped"   "sel_roulette_100_overlapped"   "sel_roulette_150_overlapped"  \
+         "sel_prob_dens_50_overlapped"  "sel_prob_dens_100_overlapped"  "sel_prob_dens_150_overlapped" \
+         "sel_tournament_50_overlapped" "sel_tournament_100_overlapped" "sel_tournament_150_overlapped"
 
 gen_plot "cmp_mse_k" \
          "mse_k_001_ferreira"   "mse_k_01_ferreira"   "mse_k_1_ferreira"   "mse_k_10_ferreira"   "mse_k_100_ferreira" "hline" \
