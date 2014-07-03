@@ -1,15 +1,15 @@
-hostname zgenhost
-datetime Sun Jun 22 23:28:04 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.165
-best_mse 0.165
+hostname smiroshnychenko
+datetime Wed Jul  2 03:32:05 EEST 2014
+runs_count 50
+timeout 10
+avg_time 10.000
+mses 0.051 0.165 0.138 0.133 0.055 0.130 0.104 0.145 0.076 0.121 0.129 0.081 0.153 0.132 0.096 0.165 0.165 0.131 0.133 0.139 0.153 0.130 0.118 0.132 0.102 0.129 0.154 0.132 0.100 0.051 0.116 0.113 0.128 0.142 0.165 0.130 0.101 0.095 0.129 0.130 0.131 0.129 0.081 0.128 0.086 0.136 0.054 0.087 0.149 0.132
+best_mse 0.051
 mse_success_margin .06
-success_rate 0
+success_rate 8
 test_caption       Эффективность алгоритма с различными функциями фитнеса
 experiment_caption Частичная СКО (префикс.)
-population_size    50
+population_size    100
 tree_depth         5
 genes_count        1
 generations_count  100000

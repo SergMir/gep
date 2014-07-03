@@ -1,12 +1,12 @@
 hostname smiroshnychenko
-datetime Thu Jun 26 11:20:33 EEST 2014
-runs_count 2
+datetime Wed Jul  2 06:09:46 EEST 2014
+runs_count 50
 timeout 0
-avg_time 16.915
-mses 0.165 0.096
-best_mse 0.096
+avg_time 18.281
+mses 0.114 0.142 0.149 0.130 0.106 0.094 0.153 0.148 0.085 0.125 0.140 0.152 0.068 0.132 0.143 0.125 0.087 0.130 0.094 0.130 0.136 0.134 0.094 0.084 0.100 0.112 0.085 0.149 0.074 0.123 0.112 0.114 0.127 0.138 0.130 0.098 0.165 0.054 0.148 0.083 0.110 0.152 0.089 0.086 0.131 0.140 0.102 0.109 0.136 0.132
+best_mse 0.054
 mse_success_margin .06
-success_rate 0
+success_rate 2
 test_caption       Эффективность алгоритма при традиционной и инкрементальной эволюции
 experiment_caption Инкрем.
 population_size    100

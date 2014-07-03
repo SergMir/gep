@@ -1,20 +1,20 @@
 hostname smiroshnychenko
-datetime Mon Jun 23 10:00:15 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.000
-best_mse 0.000
+datetime Wed Jul  2 04:45:34 EEST 2014
+runs_count 50
+timeout 7
+avg_time 7.000
+mses 39107.239 1.285 4.170 0.298 6.969 16.850 0.748 8.303 0.778 56.376 5.397 16.458 11.521 6.965 208.107 57.323 0.232 0.387 0.345 7.943 5.977 1.546 14.628 0.526 1.233 46.301 10.124 1.112 13.603 6.195 9.299 6.407 18.498 12.489 15.505 8.957 11.915 256.102 0.608 7.058 9.247 10249.221 25.713 0.132 25.101 6.979 0.139 0.135 5.149 0.592
+best_mse 0.132
 mse_success_margin .08
-success_rate 100
+success_rate 0
 test_caption       Эффективность алгоритма с различными функциями фитнеса
 experiment_caption $R^2$ (налож.)
-population_size    50
+population_size    100
 tree_depth         5
 genes_count        1
 generations_count  100000
 mutations_per_chromosome  2
-ops_preset         full
+ops_preset         short
 coding_type        overlapped
 fitness_type       r_squared
 mse_coefficient    10

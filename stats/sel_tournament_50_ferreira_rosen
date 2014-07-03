@@ -1,12 +1,12 @@
-hostname zgenhost
-datetime Sun Jun 22 23:26:39 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.289
-best_mse 0.289
+hostname smiroshnychenko
+datetime Tue Jul  1 20:37:52 EEST 2014
+runs_count 50
+timeout 10
+avg_time 10.000
+mses 0.072 0.253 0.075 0.081 0.077 0.075 0.000 0.068 0.077 0.075 0.173 0.080 0.080 0.157 0.081 0.075 0.081 0.087 0.130 0.127 0.046 0.077 0.126 0.058 0.170 0.080 0.081 0.075 0.126 0.173 0.173 0.081 0.053 0.073 0.075 0.075 0.158 0.081 0.171 0.037 0.096 0.131 0.081 0.037 0.075 0.135 0.072 0.033 0.081 0.081
+best_mse 0.000
 mse_success_margin .05
-success_rate 0
+success_rate 10
 test_caption       Эффективность алгоритма с разными операторах отбора и размере популяции
 experiment_caption Турнир 50 особей (ферр.)
 population_size    50
@@ -14,7 +14,7 @@ tree_depth         5
 genes_count        1
 generations_count  100000
 mutations_per_chromosome  2
-ops_preset         full
+ops_preset         short
 coding_type        ferreira
 fitness_type       mse
 mse_coefficient    10

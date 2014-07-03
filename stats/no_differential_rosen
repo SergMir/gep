@@ -1,18 +1,18 @@
 hostname smiroshnychenko
-datetime Thu Jun 26 15:49:08 EEST 2014
-runs_count 2
-timeout 6
-avg_time 6.000
-mses 0.081 0.249
-best_mse 0.081
+datetime Wed Jul  2 20:01:42 EEST 2014
+runs_count 50
+timeout 60
+avg_time 60.000
+mses 0.075 0.075 0.080 0.043 0.078 0.075 0.081 0.024 0.081 0.050 0.075 0.075 0.081 0.069 0.081 0.075 0.029 0.033 0.075 0.052 0.057 0.029 0.019 0.056 0.067 0.046 0.031 0.033 0.067 0.038 0.069 0.041 0.034 0.076 0.029 0.051 0.033 0.034 0.036 0.106 0.081 0.069 0.029 0.033 0.028 0.081 0.075 0.057 0.075 0.069
+best_mse 0.019
 mse_success_margin .05
-success_rate 0
+success_rate 40
 test_caption       Эффективность алгоритма с разностным подходом
 experiment_caption Исходный алгоритм
 population_size    100
 tree_depth         5
 genes_count        1
-generations_count  100000
+generations_count  3600000
 mutations_per_chromosome  2
 ops_preset         short
 coding_type        ferreira

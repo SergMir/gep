@@ -1,0 +1,21 @@
+hostname smiroshnychenko
+datetime Tue Jul  1 23:07:19 EEST 2014
+runs_count 50
+timeout 7
+avg_time 7.000
+mses 0.098 0.346 0.075 0.076 0.075 0.091 0.349 0.079 0.142 0.193 0.070 0.359 0.072 0.098 0.104 0.137 0.130 0.137 0.261 0.073 0.081 0.108 0.466 0.149 0.203 0.083 0.114 0.355 0.092 0.107 0.126 0.354 0.091 0.345 0.355 0.075 0.251 0.176 0.147 0.069 0.128 0.111 0.359 0.135 0.098 0.352 0.359 0.086 0.101 0.298
+best_mse 0.069
+mse_success_margin .08
+success_rate 18
+test_caption       Эффективность алгоритма с разными операторах отбора и размере популяции
+experiment_caption Турнир 150 особей (префикс.)
+population_size    150
+tree_depth         5
+genes_count        1
+generations_count  100000
+mutations_per_chromosome  2
+ops_preset         short
+coding_type        prefix
+fitness_type       mse
+mse_coefficient    10
+use_tournament 1

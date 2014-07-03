@@ -1,15 +1,15 @@
-hostname zgenhost
-datetime Sun Jun 22 23:27:48 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.165
-best_mse 0.165
+hostname smiroshnychenko
+datetime Wed Jul  2 01:39:23 EEST 2014
+runs_count 50
+timeout 10
+avg_time 10.000
+mses 0.126 0.143 0.129 0.116 0.143 0.142 0.131 0.130 0.107 0.127 0.101 0.152 0.130 0.139 0.078 0.136 0.131 0.141 0.134 0.135 0.147 0.114 0.142 0.147 0.107 0.136 0.092 0.138 0.143 0.059 0.136 0.101 0.149 0.131 0.143 0.139 0.095 0.097 0.099 0.136 0.144 0.131 0.093 0.143 0.144 0.112 0.141 0.140 0.128 0.059
+best_mse 0.059
 mse_success_margin .06
-success_rate 0
+success_rate 4
 test_caption       Эффективность алгоритма с заменой худших особей
 experiment_caption Замена худших
-population_size    50
+population_size    100
 tree_depth         5
 genes_count        1
 generations_count  100000

@@ -1,14 +1,14 @@
-hostname zgenhost
-datetime Sun Jun 22 23:26:22 EEST 2014
-runs_count 1
-timeout 1
-avg_time 1.000
-mses 0.159
-best_mse 0.159
+hostname smiroshnychenko
+datetime Tue Jul  1 18:30:57 EEST 2014
+runs_count 50
+timeout 10
+avg_time 10.000
+mses 0.050 0.136 0.138 0.131 0.158 0.050 0.130 0.152 0.051 0.163 0.154 0.147 0.134 0.069 0.143 0.137 0.145 0.153 0.160 0.151 0.084 0.085 0.149 0.135 0.158 0.099 0.144 0.165 0.093 0.133 0.072 0.059 0.117 0.143 0.139 0.138 0.144 0.133 0.151 0.085 0.130 0.157 0.165 0.141 0.097 0.130 0.138 0.151 0.137 0.128
+best_mse 0.050
 mse_success_margin .06
-success_rate 0
+success_rate 8
 test_caption       Эффективность алгоритма с разными операторах отбора и размере популяции
-experiment_caption Отбор плотню (400) (ферр.)
+experiment_caption Отбор плотн. (400) (ферр.)
 population_size    400
 tree_depth         5
 genes_count        1
