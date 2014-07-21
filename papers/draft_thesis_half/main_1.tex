@@ -1,0 +1,191 @@
+\documentclass[a4paper,12pt]{article}
+
+%%% Поля и разметка страницы %%%
+\usepackage{lscape}                               % Для включения альбомных страниц
+\usepackage{geometry}                             % Для последующего задания полей
+
+%%% Кодировки и шрифты %%%
+\usepackage{cmap}                                 % Улучшенный поиск русских слов в полученном pdf-файле
+\usepackage[T2A]{fontenc}                         % Поддержка русских букв
+\usepackage[utf8]{inputenc}                       % Кодировка utf8
+\usepackage[english, russian]{babel}              % Языки: русский, английский
+
+%%% Математические пакеты %%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools,amscd} % AMS
+
+%%% Оформление абзацев %%%
+\usepackage{indentfirst}                          % Красная строка
+
+%%% Цвета %%%
+\usepackage[usenames]{color}
+\usepackage{color}
+\usepackage{colortbl}
+
+%%% Таблицы %%%
+%\usepackage{longtable}                            % Длинные таблицы
+\usepackage{multirow,makecell,array}              % Улучшенное форматирование таблиц
+
+%%% Общее форматирование
+\usepackage[singlelinecheck=off,center]{caption}  % Многострочные подписи
+\usepackage{soul}                                 % Поддержка переносоустойчивых подчёркиваний и зачёркиваний
+
+%%% Библиография %%%
+\usepackage{cite}                                 % Красивые ссылки на литературу
+
+%%% Гиперссылки %%%
+\usepackage[linktocpage=true,plainpages=false,pdfpagelabels=false,unicode]{hyperref}
+
+%%% Изображения %%%
+\usepackage{graphicx}                             % Подключаем пакет работы с графикой
+
+%%% Оглавление %%%
+\usepackage{tocloft}
+
+\usepackage{alltt}
+
+\usepackage{algorithm2e}
+
+\usepackage{fancyhdr}
+
+%%% Диаграммы %%%
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes, arrows, positioning}
+\usepgfplotslibrary{external}
+\tikzexternalize[mode=list and make]
+
+\usepackage{subcaption}
+
+%%% Макет страницы %%%
+\geometry{a4paper,top=2cm,bottom=2cm,left=3cm,right=1cm}
+
+%%% Выравнивание и переносы %%%
+\sloppy                                           % Избавляемся от переполнений
+\clubpenalty=10000                                % Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000                               % Запрещаем разрыв страницы после последней строки абзаца
+
+%% Номера формул
+\mathtoolsset{showonlyrefs=true}                  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+%%% Библиография %%%
+\makeatletter
+\bibliographystyle{ugost2008ls}
+\renewcommand{\@biblabel}[1]{#1.}                 % Заменяем библиографию с квадратных скобок на точку:
+\makeatother
+
+\renewcommand{\labelitemi}{-}                     % Дефис в качестве значка списка
+
+%%% Оглавление %%%
+%\renewcommand{\cftchapdotsep}{\cftdotsep}
+
+%%% Интервалы %%%
+\renewcommand{\arraystretch}{0.8}                 % Расстояние между строками таблицы
+\captionsetup[table]{skip=1pt}                    % Расстояние между caption и таблицей
+\renewcommand{\baselinestretch}{1.5}              % Междустрочный интервал
+
+%%% Изображения %%%
+\graphicspath{{./images/}}                        % Пути к изображениям
+
+%%% Цвета гиперссылок %%%
+\definecolor{linkcolor}{rgb}{0,0,0}
+\definecolor{citecolor}{rgb}{0,0,0}
+\definecolor{urlcolor}{rgb}{0,0,0}
+\hypersetup{
+    colorlinks, linkcolor={linkcolor},
+    citecolor={citecolor}, urlcolor={urlcolor}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\fancyheadoffset{0mm}
+\fancyfootoffset{0mm}
+\setlength{\headheight}{17pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}
+{ 
+  \fancyhf{}
+  \rhead{\thepage}
+}
+
+
+%%% Стили диаграмм %%%
+\tikzstyle{decision} =
+[
+  diamond,
+  draw,
+  text width = 7em,
+  text badly centered,
+  node distance = 5mm,
+  inner sep = 0pt
+]
+
+\tikzstyle{block} =
+[
+  rectangle,
+  draw,
+  text width = 15em,
+  text centered,
+  rounded corners,
+  minimum height = 1em
+]
+
+\tikzstyle{line} =
+[
+  draw,
+  -latex'
+]
+
+\pgfplotsset{
+ZCmpAxis/.style={mark repeat=10, ylabel={СКО}, xlabel={Время, мс}}
+}
+
+%%% Строки алгоритмов %%%
+\SetKwIF{If}{ElseIf}{Else}{если}{тогда}{иначе\ если}{иначе}{конец\ условия}
+\SetKwFor{While}{до\ тех\ пор,\ пока}{выполнять}{конец\ цикла}
+\SetKwBlock{Begin}{начало\ блока}{конец\ блока}
+\SetKwFor{ForEach}{для\ каждого}{выполнять}{конец\ цикла}
+\SetAlgorithmName{Алгоритм}{алгоритм}{Список алгоритмов}
+
+
+%\author{Руденко О.Г., Мирошниченко С.В.}
+\title{Программирование с экспрессией генов: способы кодирования и создания синтаксических деревьев}
+
+\begin{document}
+
+%%% Переопределение именований %%%
+\renewcommand{\abstractname}{Аннотация}
+\renewcommand{\alsoname}{см. также}
+\renewcommand{\appendixname}{Приложение}
+\renewcommand{\bibname}{Литература}
+\renewcommand{\ccname}{исх.}
+\renewcommand{\chaptername}{Глава}
+\renewcommand{\contentsname}{СОДЕРЖАНИЕ}
+\renewcommand{\enclname}{вкл.}
+\renewcommand{\figurename}{Рисунок}
+\renewcommand{\headtoname}{вх.}
+\renewcommand{\indexname}{Предметный указатель}
+\renewcommand{\listfigurename}{Список рисунков}
+\renewcommand{\listtablename}{Список таблиц}
+\renewcommand{\pagename}{Стр.}
+\renewcommand{\partname}{Часть}
+\renewcommand{\refname}{Список литературы}
+\renewcommand{\seename}{см.}
+\renewcommand{\tablename}{Таблица}
+
+\maketitle
+
+\input{split_part_1_initial.tex}
+\clearpage
+%\input{split_part_2_operators.tex}
+%\clearpage
+%\input{split_part_3_evo_process.tex}
+%\clearpage
+%\input{z_usage.tex}
+%\clearpage
+
+\addcontentsline{toc}{chapter}{\bibname} % Добавляем список литературы в оглавление
+\bibliography{related_work}              % Подключаем BibTeX-базы
+
+\end{document}
